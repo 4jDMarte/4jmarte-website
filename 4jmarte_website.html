@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4jMarte Industrial Automation & Cybersecurity Limited | 4jmarte.ie</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-header {
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-500 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-800 text-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-brand-500/20">
+                        4J
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-extrabold tracking-tight text-white leading-none">4jMarte</span>
+                        <span class="text-[10px] tracking-widest text-cyan-400 font-semibold uppercase mt-0.5">Automation & Cybersecurity</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7">
+                    <a href="#about" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Overview</a>
+                    <a href="#proposal" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Services & Proposal</a>
+                    <a href="#competencies" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Competencies</a>
+                    <a href="#gallery" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Media</a>
+                    <a href="#document" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Documents</a>
+                    <a href="#contact" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Contact</a>
+                </nav>
+
+                <!-- Right Quick CTA -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 text-white hover:bg-cyan-500 text-xs uppercase font-bold tracking-wider transition-all duration-200 shadow-md shadow-brand-500/20">
+                        <i class="fa-regular fa-envelope"></i> Contact Us
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-900 px-4 pt-3 pb-6 space-y-3 text-slate-200">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Overview</a>
+            <a href="#proposal" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Services & Proposal</a>
+            <a href="#competencies" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Competencies</a>
+            <a href="#gallery" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Media Gallery</a>
+            <a href="#document" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Document Viewer</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Contact Us</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block text-center w-full px-5 py-3 rounded-xl bg-brand-600 text-white font-semibold text-xs uppercase tracking-wider">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow">
+        
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative py-20 md:py-28 bg-slate-950 text-white overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:24px_24px]"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-4xl">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                        <i class="fa-solid fa-shield-halved"></i> Irish Automation & Digital Manufacturing Consultancy
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                        4jMarte Industrial Automation and Cybersecurity Limited
+                    </h1>
+                    <p class="mt-6 text-lg sm:text-xl text-cyan-100/80 font-medium leading-relaxed max-w-3xl">
+                        Systems Automation, DeltaV Lifecycle Management & Manufacturing Systems Support Services
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                        <a href="#proposal" class="px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-cyan-500 text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-brand-500/30 transition-all duration-200 text-center">
+                            View Engineering Proposal
+                        </a>
+                        <a href="#competencies" class="px-7 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm uppercase tracking-wider transition-all duration-200 text-center">
+                            Core Competencies
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPANY OVERVIEW -->
+        <section id="about" class="py-20 bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7">
+                        <span class="text-brand-600 text-xs font-extrabold uppercase tracking-widest">Company Overview</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2 mb-6">
+                            About 4jMarte Industrial Automation Ltd
+                        </h2>
+                        <p class="text-slate-600 leading-relaxed text-base mb-6">
+                            <strong>4jMarte Industrial Automation Ltd</strong> is an Irish automation and digital manufacturing consultancy delivering specialist engineering services tailored to high-compliance, mission-critical production environments.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed text-base mb-8">
+                            We provide comprehensive engineering solutions spanning Industrial Automation, Distributed Control Systems (DCS), Manufacturing Execution Systems (MES), Industrial Networking, Cybersecurity, Process Information Systems, GMP Validation, and Digital Transformation programs.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-slate-900 text-white p-8 rounded-2xl shadow-xl border border-slate-800">
+                        <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-800 pb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-cyan-400"></i> Primary Service Domains
+                        </h3>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> Industrial Automation</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> Distributed Control Systems (DCS)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> Manufacturing Execution Systems (MES)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> Industrial Networking & OT Infrastructure</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> Industrial Cybersecurity</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> Process Information Systems</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> GMP Validation & CSV Lifecycle</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400 text-xs"></i> Digital Transformation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROPOSAL & OBJECTIVES SECTION -->
+        <section id="proposal" class="py-20 bg-slate-100/70 border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Partnership Proposal Card -->
+                <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-lg mb-16">
+                    <div class="max-w-3xl mb-8">
+                        <span class="px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wider">
+                            Specialist Services Engagement
+                        </span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mt-4">
+                            Engineering Partnership Proposal: Generic Industry 4.0
+                        </h2>
+                    </div>
+                    <p class="text-slate-700 text-base sm:text-lg leading-relaxed mb-8 bg-slate-50 p-6 rounded-2xl border-l-4 border-brand-600">
+                        4jMarte Industrial Automation Ltd proposes to partner with industrial manufacturing partners to provide specialist Systems Automation Engineering services supporting site <strong>Emerson DeltaV Distributed Control Systems (DCS)</strong>, <strong>Fisher-Rosemount RS3 systems</strong>, Process Information Systems, Manufacturing Information Systems, OT infrastructure, and GMP-regulated manufacturing operations.
+                    </p>
+
+                    <!-- Engagement Objectives -->
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-bullseye text-brand-600"></i> Proposed Engagement Key Objectives
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500 transition-colors">
+                            <i class="fa-solid fa-chart-line text-brand-600 text-xl mb-3"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Operational Reliability</h4>
+                            <p class="text-xs text-slate-500 mt-1">Improve overall site operational stability and system reliability.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500 transition-colors">
+                            <i class="fa-solid fa-certificate text-brand-600 text-xl mb-3"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Validated GMP Status</h4>
+                            <p class="text-xs text-slate-500 mt-1">Maintain strict compliance and validated GMP regulatory status.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500 transition-colors">
+                            <i class="fa-solid fa-gauge-high text-brand-600 text-xl mb-3"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Production Performance</h4>
+                            <p class="text-xs text-slate-500 mt-1">Support and optimise site production throughput & performance.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500 transition-colors">
+                            <i class="fa-solid fa-stopwatch text-brand-600 text-xl mb-3"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Minimise Downtime</h4>
+                            <p class="text-xs text-slate-500 mt-1">Reduce automation-related downtime through proactive engineering.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500 transition-colors">
+                            <i class="fa-solid fa-user-shield text-brand-600 text-xl mb-3"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Cybersecurity Posture</h4>
+                            <p class="text-xs text-slate-500 mt-1">Improve industrial OT security posture and threat defense.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500 transition-colors">
+                            <i class="fa-solid fa-clock-rotate-left text-brand-600 text-xl mb-3"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Extend System Lifecycle</h4>
+                            <p class="text-xs text-slate-500 mt-1">Maximise long-term value and extend legacy system lifecycle.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500 transition-colors sm:col-span-2">
+                            <i class="fa-solid fa-rocket text-brand-600 text-xl mb-3"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Future Modernization</h4>
+                            <p class="text-xs text-slate-500 mt-1">Support future automation modernization and system upgrade initiatives.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specialist Experience Grid -->
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Dedicated Automation Specialist Expertise</h3>
+                    <p class="text-slate-600 text-sm mb-8">The solution provides manufacturing operations with a dedicated automation specialist possessing extensive experience in:</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-microchip text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">Emerson DeltaV</h4>
+                            <p class="text-xs text-slate-500 mt-2">DCS architecture, configuration, batch execution, and lifecycle support.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-server text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">Fisher-Rosemount RS3</h4>
+                            <p class="text-xs text-slate-500 mt-2">Legacy RS3 control system support, maintenance, and migration planning.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-vial-circle-check text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">GMP Manufacturing</h4>
+                            <p class="text-xs text-slate-500 mt-2">Regulated pharmaceutical and life sciences manufacturing systems.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-network-wired text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">MES & Information Systems</h4>
+                            <p class="text-xs text-slate-500 mt-2">Manufacturing Execution Systems & Process Information historians.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-sitemap text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">OT Infrastructure</h4>
+                            <p class="text-xs text-slate-500 mt-2">Operational Technology network architecture, servers, and virtualization.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-lock text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">Industrial Cybersecurity</h4>
+                            <p class="text-xs text-slate-500 mt-2">OT network hardening, access control, segmenting, and threat mitigation.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-clipboard-check text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">System Validation</h4>
+                            <p class="text-xs text-slate-500 mt-2">CSV compliance, protocol execution, change control, and regulatory alignment.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-diagram-project text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">Modernization Programs</h4>
+                            <p class="text-xs text-slate-500 mt-2">Turnkey DCS modernizations, upgrade roadmaps, and cutover execution.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CORE COMPETENCIES -->
+        <section id="competencies" class="py-20 bg-slate-900 text-white border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Technical Expertise</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">Core Competencies</h2>
+                    <p class="mt-3 text-slate-400 text-sm sm:text-base">
+                        Proven engineering capabilities supporting regulated batch manufacturing and complex DCS architectures.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-microchip text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">Emerson DeltaV</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-database text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">RS3 / R3 Systems</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-sliders text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">SCADA & PLC Systems</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-boxes-stacked text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">Batch Manufacturing</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-chart-line text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">Historian Systems</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-brain text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">Manufacturing Intelligence</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-network-wired text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">OT Infrastructure</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-diagram-next text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">Network Architecture</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-check-double text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">GMP Compliance</h4>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center hover:border-cyan-400 transition-colors">
+                        <i class="fa-solid fa-file-contract text-2xl text-cyan-400 mb-3"></i>
+                        <h4 class="font-bold text-sm text-slate-100">CSV Lifecycle Management</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEDIA GALLERY SECTION -->
+        <section id="gallery" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Systems & Operations Media Gallery</h2>
+                    <p class="mt-2 text-slate-600 text-base">Explore visual placeholders for industrial automation, DCS architecture, and OT cybersecurity.</p>
+                </div>
+                <!-- Filter Tabs -->
+                <div class="mt-4 md:mt-0 flex flex-wrap gap-2">
+                    <button class="filter-btn active px-4 py-2 rounded-lg text-sm font-semibold bg-brand-600 text-white" data-filter="all">All Items</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100" data-filter="video">Videos</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100" data-filter="image">Images</button>
+                </div>
+            </div>
+
+            <!-- Grid Items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Video Item 1 -->
+                <div class="gallery-item video bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative bg-slate-900 aspect-video">
+                        <video class="w-full h-full object-cover" poster="https://placehold.co/800x450/0c4a6e/ffffff?text=DeltaV+DCS+Demonstration" controls preload="none">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                            Your browser does not support video streaming.
+                        </video>
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur text-white text-xs px-2.5 py-1 rounded-md font-medium pointer-events-none">
+                            <i class="fa-solid fa-play text-red-500 me-1.5"></i> Video
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-slate-900">Emerson DeltaV System Overview</h3>
+                        <p class="mt-2 text-sm text-slate-500">Video demo demonstrating DCS control loop execution and operator console graphics.</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 1 -->
+                <div class="gallery-item image bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative aspect-video overflow-hidden group cursor-pointer" onclick="openLightbox('https://placehold.co/1200x800/0369a1/ffffff?text=OT+Network+Cybersecurity+Architecture', 'OT Cybersecurity & Network Architecture')">
+                        <img src="https://placehold.co/800x450/0369a1/ffffff?text=OT+Network+Cybersecurity+Architecture" alt="OT Cybersecurity Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="p-3 rounded-full bg-white/90 text-slate-900 shadow-lg">
+                                <i class="fa-solid fa-magnifying-glass-plus text-lg"></i>
+                            </span>
+                        </div>
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur text-white text-xs px-2.5 py-1 rounded-md font-medium">
+                            <i class="fa-solid fa-image text-cyan-400 me-1.5"></i> Image
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-slate-900">OT Industrial Cybersecurity Topology</h3>
+                        <p class="mt-2 text-sm text-slate-500">Purdue model network segmentation and firewall architecture for manufacturing operations.</p>
+                    </div>
+                </div>
+
+                <!-- Video Item 2 -->
+                <div class="gallery-item video bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative bg-slate-900 aspect-video">
+                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Automation Video Player" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-slate-900">Batch Control & Execution Video</h3>
+                        <p class="mt-2 text-sm text-slate-500">ISA-88 batch manufacturing execution and recipe management showcase.</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 2 -->
+                <div class="gallery-item image bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative aspect-video overflow-hidden group cursor-pointer" onclick="openLightbox('https://placehold.co/1200x800/0c4a6e/ffffff?text=Fisher-Rosemount+RS3+System+Interface', 'Fisher-Rosemount RS3 System Interface')">
+                        <img src="https://placehold.co/800x450/0c4a6e/ffffff?text=Fisher-Rosemount+RS3+System+Interface" alt="RS3 System Interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="p-3 rounded-full bg-white/90 text-slate-900 shadow-lg">
+                                <i class="fa-solid fa-magnifying-glass-plus text-lg"></i>
+                            </span>
+                        </div>
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur text-white text-xs px-2.5 py-1 rounded-md font-medium">
+                            <i class="fa-solid fa-image text-cyan-400 me-1.5"></i> Image
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-slate-900">RS3 Legacy Control Hardware</h3>
+                        <p class="mt-2 text-sm text-slate-500">Fisher-Rosemount RS3 rack cabinet diagram and I/O module lifecycle map.</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 3 -->
+                <div class="gallery-item image bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative aspect-video overflow-hidden group cursor-pointer" onclick="openLightbox('https://placehold.co/1200x800/1e293b/ffffff?text=GMP+Validation+and+CSV+Lifecycle', 'GMP Validation and CSV Lifecycle')">
+                        <img src="https://placehold.co/800x450/1e293b/ffffff?text=GMP+Validation+and+CSV+Lifecycle" alt="GMP CSV Lifecycle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="p-3 rounded-full bg-white/90 text-slate-900 shadow-lg">
+                                <i class="fa-solid fa-magnifying-glass-plus text-lg"></i>
+                            </span>
+                        </div>
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur text-white text-xs px-2.5 py-1 rounded-md font-medium">
+                            <i class="fa-solid fa-image text-cyan-400 me-1.5"></i> Image
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-slate-900">GMP & CSV Compliance Model</h3>
+                        <p class="mt-2 text-sm text-slate-500">V-Model GAMP5 Computer Systems Validation workflow documentation graphic.</p>
+                    </div>
+                </div>
+
+                <!-- Video Item 3 -->
+                <div class="gallery-item video bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative bg-slate-900 aspect-video">
+                        <video class="w-full h-full object-cover" poster="https://placehold.co/800x450/0f172a/ffffff?text=OT+Infrastructure+Virtualization" controls preload="none">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
+                            Your browser does not support video streaming.
+                        </video>
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur text-white text-xs px-2.5 py-1 rounded-md font-medium pointer-events-none">
+                            <i class="fa-solid fa-play text-red-500 me-1.5"></i> Video
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-slate-900">Virtualization & OT Server Cluster</h3>
+                        <p class="mt-2 text-sm text-slate-500">High-availability hypervisor setup for DeltaV host and historian servers.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- READ-ONLY PDF DOCUMENT VIEWER SECTION -->
+        <section id="document" class="py-20 bg-slate-100/70 border-y border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Technical & Proposal Documentation</h2>
+                    <p class="mt-3 text-slate-600">
+                        Read-only browser viewer for 4jMarte proposal files, validation protocols, and service level specifications.
+                    </p>
+                </div>
+
+                <!-- Document Viewer Card -->
+                <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden max-w-5xl mx-auto">
+                    <!-- Control Bar -->
+                    <div class="bg-slate-900 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-red-400 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm leading-tight">4jMarte_Industry4.0_Proposal_Summary.pdf</h4>
+                                <span class="text-xs text-slate-400">Read-Only Document • 4jmarte.ie Official Proposal</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="togglePdfFullscreen()" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors flex items-center gap-1.5">
+                                <i class="fa-solid fa-expand"></i> Fullscreen
+                            </button>
+                            <a id="pdf-download-btn" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" download class="px-4 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-xs font-semibold text-white shadow transition-colors flex items-center gap-1.5">
+                                <i class="fa-solid fa-download"></i> Download PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PDF Embedded View Port -->
+                    <div id="pdf-container" class="relative bg-slate-200 w-full flex items-center justify-center overflow-hidden" style="min-height: 550px;">
+                        <object data="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" type="application/pdf" class="w-full h-[550px]">
+                            <div class="p-12 text-center max-w-md mx-auto">
+                                <div class="w-16 h-16 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center mx-auto mb-4 text-2xl">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-lg mb-2">PDF Document Preview</h3>
+                                <p class="text-slate-500 text-sm mb-6">Your web browser does not support inline PDF viewing.</p>
+                                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white text-sm font-semibold rounded-xl">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Open PDF Document
+                                </a>
+                            </div>
+                        </object>
+                    </div>
+
+                    <!-- Viewer Footer info -->
+                    <div class="bg-slate-50 px-6 py-3 border-t border-slate-200 text-xs text-slate-500 flex flex-wrap justify-between items-center">
+                        <span><i class="fa-solid fa-lock me-1"></i> Read-Only Protected Preview</span>
+                        <span>Domain: <strong>4jmarte.ie</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT US SECTION -->
+        <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Connect With Us</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">Contact 4jMarte</h2>
+                <p class="mt-3 text-slate-600 text-base">
+                    Reach out regarding our Systems Automation, DeltaV, RS3, and OT Cybersecurity consultancy services.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl mb-4 font-bold">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Direct Email Inquiry</h3>
+                        <p class="text-slate-500 text-sm mb-4">Send engineering RFPs or project support inquiries to:</p>
+                        <a href="mailto:info@4jmarte.ie" class="text-brand-600 font-semibold text-lg hover:underline flex items-center gap-2">
+                            info@4jmarte.ie <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl mb-4 font-bold">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Registered Entity</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            <strong>4jMarte Industrial Automation and Cybersecurity Limited</strong><br>
+                            Irish Custom Domain: <span class="text-brand-600 font-semibold">4jmarte.ie</span><br>
+                            Specialist Systems Engineering Consultancy
+                        </p>
+                    </div>
+
+                    <!-- Instant Messenger Buttons -->
+                    <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-md">
+                        <h3 class="text-lg font-bold mb-2">Instant Messenger Channels</h3>
+                        <p class="text-slate-400 text-sm mb-6">Quick response messaging options for on-call support inquiries.</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="alert('WhatsApp channel for 4jmarte.ie initialized.')" class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+                                <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+                            </button>
+                            <button onclick="alert('Telegram channel for 4jmarte.ie initialized.')" class="w-full py-3 px-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+                                <i class="fa-brands fa-telegram text-base"></i> Telegram
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Submit Inquiry</h3>
+                        
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-xs font-bold uppercase text-slate-600 mb-2">Your Name</label>
+                                    <input type="text" id="name" required placeholder="Engineering Manager" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 placeholder-slate-400 text-sm">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-bold uppercase text-slate-600 mb-2">Email Address</label>
+                                    <input type="email" id="email" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 placeholder-slate-400 text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-xs font-bold uppercase text-slate-600 mb-2">Subject</label>
+                                <input type="text" id="subject" required placeholder="Automation Support / Industry 4.0 Proposal Inquiry" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 placeholder-slate-400 text-sm">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-bold uppercase text-slate-600 mb-2">Project Details / Message</label>
+                                <textarea id="message" rows="5" required placeholder="Specify DeltaV version, RS3 support scope, or OT cybersecurity requirements..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 placeholder-slate-400 text-sm resize-none"></textarea>
+                            </div>
+
+                            <div id="form-status" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+                            <button type="submit" id="submit-btn" class="w-full sm:w-auto px-8 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2">
+                                <i class="fa-regular fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-sm">
+                    4J
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-white font-bold text-base leading-none">4jMarte</span>
+                    <span class="text-[10px] text-cyan-400 uppercase tracking-widest font-semibold mt-0.5">Automation & Cybersecurity</span>
+                </div>
+            </div>
+            
+            <p class="text-xs text-slate-500 text-center md:text-left">
+                &copy; <span id="year-span"></span> <strong>4jMarte Industrial Automation and Cybersecurity Limited</strong>. All rights reserved. Custom Domain: <strong>4jmarte.ie</strong>.
+            </p>
+
+            <div class="flex items-center gap-6 text-xs font-semibold uppercase tracking-wider">
+                <a href="#hero" class="hover:text-white transition-colors">Top</a>
+                <a href="#proposal" class="hover:text-white transition-colors">Proposal</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full">
+            <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white hover:text-slate-300 text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Enlarged View" class="w-full max-h-[80vh] object-contain rounded-xl shadow-2xl">
+            <p id="lightbox-caption" class="text-center text-slate-300 text-sm mt-4 font-medium"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.getElementById('year-span').textContent = new Date().getFullYear();
+
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // 2. Media Filter Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-brand-600', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                });
+
+                btn.classList.add('active', 'bg-brand-600', 'text-white');
+                btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 3. Image Lightbox Modal
+        function openLightbox(src, caption) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+
+            img.src = src;
+            cap.textContent = caption;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('lightbox-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox-modal') {
+                closeLightbox();
+            }
+        });
+
+        // 4. PDF Fullscreen Helper
+        function togglePdfFullscreen() {
+            const pdfContainer = document.getElementById('pdf-container');
+            if (!document.fullscreenElement) {
+                pdfContainer.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // 5. Form Submit Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const statusDiv = document.getElementById('form-status');
+            const submitBtn = document.getElementById('submit-btn');
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Sending...`;
+
+            setTimeout(() => {
+                statusDiv.className = "p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-2";
+                statusDiv.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i> Inquiry received. A 4jMarte automation engineer will contact you shortly at info@4jmarte.ie.`;
+                statusDiv.classList.remove('hidden');
+
+                document.getElementById('contact-form').reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<i class="fa-regular fa-paper-plane"></i> Send Message`;
+
+                setTimeout(() => {
+                    statusDiv.classList.add('hidden');
+                }, 6000);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
