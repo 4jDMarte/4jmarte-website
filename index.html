@@ -419,7 +419,35 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                 </div>
             </div>
         </div>
-
+<!-- Media Gallery Item: Secured AVEVA PI & Purdue Architecture PDF -->
+<div class="gallery-item image bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+    <div class="relative aspect-video overflow-hidden group cursor-pointer bg-slate-900" onclick="openLightbox('./Secured_AVEVA_PI_PerdueArchitecture_4jMarte.pdf', 'Secured AVEVA PI & Purdue Architecture PDF')">
+        <!-- PDF Thumbnail / Preview Alternative Frame -->
+        <iframe 
+            src="./Secured_AVEVA_PI_PerdueArchitecture_4jMarte.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+            class="w-full h-full border-0 opacity-40 group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+            title="Secured AVEVA PI Architecture PDF Preview">
+        </iframe>
+        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="p-3 rounded-full bg-white/90 text-slate-900 shadow-lg">
+                <i class="fa-solid fa-file-pdf text-lg text-red-600"></i>
+            </span>
+        </div>
+        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur text-white text-xs px-2.5 py-1 rounded-md font-medium">
+            <i class="fa-solid fa-file-pdf text-red-400 me-1.5"></i> PDF Document
+        </span>
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <h3 class="font-bold text-lg text-slate-900">Secured AVEVA PI &amp; Purdue Architecture</h3>
+            <p class="mt-2 text-sm text-slate-500">Official architectural schematic detailing PI system integration across Purdue enterprise network levels.</p>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span><i class="fa-solid fa-file-arrow-down me-1"></i> Technical PDF</span>
+            <a href="./Secured_AVEVA_PI_PerdueArchitecture_4jMarte.pdf" target="_blank" download class="text-brand-600 font-semibold hover:underline">Download PDF</a>
+        </div>
+    </div>
+</div>
         <!-- Video Item 2 -->
         <div class="gallery-item video bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div class="relative bg-slate-900 aspect-video overflow-hidden">
@@ -503,6 +531,7 @@ We remain committed to delivering secure, reliable, and innovative engineering s
         <div class="gallery-item image bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div class="relative aspect-video overflow-hidden group cursor-pointer" onclick="openLightbox('https://placehold.co/1200x800/0369a1/ffffff?text=OT+Network+Cybersecurity+Architecture', 'OT Cybersecurity & Network Architecture')">
                 <img src="https://placehold.co/800x450/0369a1/ffffff?text=OT+Network+Cybersecurity+Architecture" alt="OT Cybersecurity Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <img src="Designer.png" alt="4jMarte Banner" class="...">
                 <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <span class="p-3 rounded-full bg-white/90 text-slate-900 shadow-lg">
                         <i class="fa-solid fa-magnifying-glass-plus text-lg"></i>
@@ -695,9 +724,10 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                 <div id="pdf-viewer-wrapper" class="flex-1 bg-slate-950 relative">
                     <iframe 
                         id="pdf-frame" 
-                        src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf#toolbar=0&navpanes=0" 
-                        class="w-full h-full border-0 opacity-20 transition-opacity duration-300"
-                        title="4jMarte Document Viewer"
+                        id="pdf-frame" 
+                            src="./4jMarte-Automation Engineering_Proposal.pdf#toolbar=0&navpanes=0" 
+                            class="w-full h-full border-0 opacity-20 transition-opacity duration-300"
+                            title="4jMarte Document Viewer"
                     ></iframe>
                 </div>
 
