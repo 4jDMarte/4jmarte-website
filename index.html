@@ -618,40 +618,40 @@ We remain committed to delivering secure, reliable, and innovative engineering s
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            <!-- Left Column: Dynamic Search Results & Company Verification -->
+            <!-- Left Column: Authentication & Document Selector -->
             <div class="lg:col-span-5 bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 md:p-8 flex flex-col space-y-6 shadow-xl">
                 
-                <!-- Security Verification Box -->
+                <!-- Security Verification Box (Corporate Email Required) -->
                 <div id="doc-security-box" class="bg-slate-900/90 border border-slate-700 rounded-xl p-5">
-                    <label for="company-key-input" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Step 1: Enter Organization Name to Authenticate:
+                    <label for="corporate-email-input" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                        Step 1: Enter Corporate Email (name.surname@company.com):
                     </label>
                     <div class="flex gap-2">
                         <div class="relative flex-1">
                             <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
-                                <i class="fa-solid fa-building text-sm"></i>
+                                <i class="fa-solid fa-envelope text-sm"></i>
                             </span>
                             <input 
-                                type="text" 
-                                id="company-key-input" 
-                                placeholder="e.g. Guerbet, Pfizer, MSD..." 
+                                type="email" 
+                                id="corporate-email-input" 
+                                placeholder="e.g. john.smith@guerbet.com" 
                                 class="w-full pl-9 pr-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all"
-                                onkeypress="if(event.key === 'Enter') verifyCompanyAccess()"
+                                onkeypress="if(event.key === 'Enter') verifyCorporateEmail()"
                             >
                         </div>
                         <button 
-                            onclick="verifyCompanyAccess()" 
+                            onclick="verifyCorporateEmail()" 
                             class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-lg transition-colors shadow-lg flex items-center shrink-0"
                         >
                             <i class="fa-solid fa-lock-open me-2 text-xs"></i> Unlock
                         </button>
                     </div>
                     <p id="security-msg" class="mt-2 text-xs text-slate-400">
-                        <i class="fa-solid fa-circle-info me-1"></i> Enter company name to view preview and enable download request.
+                        <i class="fa-solid fa-circle-info me-1"></i> Format: name@company.com or name.surname@company.com
                     </p>
                 </div>
 
-                <!-- Document Selection List (Filtered dynamically by Search Bar) -->
+                <!-- Document Selection List -->
                 <div>
                     <span class="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold block mb-3">Step 2: Select Document to Preview</span>
                     <div id="doc-list-container" class="space-y-3 max-h-64 overflow-y-auto pr-1">
@@ -698,7 +698,7 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                     </div>
                 </div>
 
-                <!-- Action Controls (Emails info@4jmarte.ie directly when clicked) -->
+                <!-- Action Controls -->
                 <div class="pt-4 border-t border-slate-700 flex flex-col sm:flex-row gap-3">
                     <a 
                         id="download-doc-btn" 
@@ -728,10 +728,10 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                     </div>
                     <h4 class="text-xl font-bold text-white mb-2">Protected Document Access</h4>
                     <p class="text-slate-400 text-sm max-w-md mb-6 leading-relaxed">
-                        Please enter your organization name to view technical previews and request copies directly from 4jMarte engineering.
+                        Please enter your corporate email address (name.surname@company.com) to view technical previews and request copies from 4jMarte.
                     </p>
                     <div class="inline-flex items-center px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-slate-400">
-                        <i class="fa-solid fa-shield text-brand-400 me-2"></i> Status: Locked
+                        <i class="fa-solid fa-shield text-brand-400 me-2"></i> Status: Locked (Corporate Email Required)
                     </div>
                 </div>
 
@@ -766,6 +766,134 @@ We remain committed to delivering secure, reliable, and innovative engineering s
         </div>
     </div>
 </section>
+
+<!-- Interactive Script for Corporate Email Authentication -->
+<script>
+let currentSelectedDoc = {
+    title: "4jMarte Automation Engineering Proposal",
+    ref: "4JM-PROP-2026",
+    src: "./4jMarte-Automation Engineering_Proposal.pdf"
+};
+
+let isAuthenticated = false;
+let userEmailValue = "";
+
+// 1. Dynamic Search Bar Filtering
+function filterDocuments() {
+    const input = document.getElementById('doc-search-input').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.doc-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        const ref = card.getAttribute('data-ref').toLowerCase();
+        const keywords = card.getAttribute('data-keywords').toLowerCase();
+
+        if (title.includes(input) || ref.includes(input) || keywords.includes(input)) {
+            card.classList.remove('hidden');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    const noDocs = document.getElementById('no-docs-found');
+    if (visibleCount === 0) {
+        noDocs.classList.remove('hidden');
+    } else {
+        noDocs.classList.add('hidden');
+    }
+}
+
+// 2. Document Selection Switcher
+function selectDocument(element) {
+    document.querySelectorAll('.doc-card').forEach(c => {
+        c.classList.remove('active', 'border-brand-500/50', 'bg-slate-900/80');
+        c.classList.add('border-slate-700', 'bg-slate-800/60');
+    });
+
+    element.classList.add('active', 'border-brand-500/50', 'bg-slate-900/80');
+    element.classList.remove('border-slate-700', 'bg-slate-800/60');
+
+    currentSelectedDoc.title = element.getAttribute('data-title');
+    currentSelectedDoc.ref = element.getAttribute('data-ref');
+    currentSelectedDoc.src = element.getAttribute('data-src');
+
+    const pdfFrame = document.getElementById('pdf-frame');
+    pdfFrame.src = `${currentSelectedDoc.src}#toolbar=0&navpanes=0`;
+
+    if (isAuthenticated) {
+        document.getElementById('pdf-header-title').textContent = currentSelectedDoc.title;
+        document.getElementById('pdf-header-subtitle').textContent = `Ref: ${currentSelectedDoc.ref}`;
+    }
+}
+
+// 3. Corporate Email Validation & Authentication
+function verifyCorporateEmail() {
+    const emailInput = document.getElementById('corporate-email-input');
+    const securityMsg = document.getElementById('security-msg');
+    const lockedOverlay = document.getElementById('pdf-locked-overlay');
+    const pdfFrame = document.getElementById('pdf-frame');
+    const downloadBtn = document.getElementById('download-doc-btn');
+    const fullscreenBtn = document.getElementById('fullscreen-doc-btn');
+    const securityBox = document.getElementById('doc-security-box');
+
+    const email = emailInput.value.trim();
+    // Regex validating name/name.surname@companyname.com structure
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(email) || !email.includes('.')) {
+        securityMsg.className = "mt-2 text-xs text-red-400 font-semibold";
+        securityMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation me-1"></i> Please enter a valid corporate email (e.g. john.smith@guerbet.com)';
+        emailInput.focus();
+        return;
+    }
+
+    isAuthenticated = true;
+    userEmailValue = email;
+
+    lockedOverlay.classList.add('opacity-0', 'pointer-events-none');
+    pdfFrame.classList.remove('opacity-20');
+    
+    downloadBtn.classList.remove('opacity-50', 'pointer-events-none');
+    fullscreenBtn.classList.remove('opacity-50', 'pointer-events-none');
+
+    document.getElementById('pdf-header-title').textContent = currentSelectedDoc.title;
+    document.getElementById('pdf-header-subtitle').textContent = `Authorized View for: ${email} (Ref: ${currentSelectedDoc.ref})`;
+    
+    securityBox.className = "bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-5";
+    securityMsg.className = "mt-2 text-xs text-emerald-400 font-semibold";
+    securityMsg.innerHTML = `<i class="fa-solid fa-circle-check me-1"></i> Authenticated for <strong>${email}</strong>. Download request ready.`;
+}
+
+// 4. Send Email Request directly to info@4jmarte.ie with User Details
+function requestDownloadViaEmail() {
+    const recipient = "info@4jmarte.ie";
+    const subject = encodeURIComponent(`Document Download Request: ${currentSelectedDoc.title} [${currentSelectedDoc.ref}]`);
+    const body = encodeURIComponent(
+        `Hello 4jMarte Engineering Team,\n\n` +
+        `An official document download request has been submitted from the web portal:\n\n` +
+        `Requester Email: ${userEmailValue}\n` +
+        `Document Title: ${currentSelectedDoc.title}\n` +
+        `Document Ref: ${currentSelectedDoc.ref}\n\n` +
+        `Please forward the requested PDF package to ${userEmailValue}.\n\n` +
+        `Best regards,\n` +
+        `${userEmailValue}`
+    );
+
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+}
+
+// 5. Fullscreen Preview Toggle
+function toggleDocFullscreen() {
+    const pdfFrame = document.getElementById('pdf-frame');
+    if (pdfFrame.requestFullscreen) {
+        pdfFrame.requestFullscreen();
+    } else if (pdfFrame.webkitRequestFullscreen) {
+        pdfFrame.webkitRequestFullscreen();
+    }
+}
+</script></section>
 
 <!-- Interactive Dynamic JavaScript -->
 <script>
@@ -977,10 +1105,9 @@ function toggleDocFullscreen() {
                         </form>
                     </div>
                 </div>
-
             </div>
+     
         </section>
-
     </main>
 
     <!-- FOOTER -->
