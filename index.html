@@ -64,7 +64,7 @@
                     <a href="#proposal" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Services & Proposal</a>
                     <a href="#competencies" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Competencies</a>
                     <a href="#gallery" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Media</a>
-                    <a href="#Documentation" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Documents</a>
+                    <a href="#" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Documents</a>
                     <a href="#contact" class="text-xs uppercase font-semibold text-slate-300 hover:text-cyan-400 tracking-wider transition-colors">Contact</a>
                 </nav>
 
@@ -90,7 +90,7 @@
             <a href="#proposal" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Services & Proposal</a>
             <a href="#competencies" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Competencies</a>
             <a href="#gallery" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Media Gallery</a>
-            <a href="#documentation" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Documents</a>
+            <a href="#" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Documents</a>
             <a href="#contact" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-800">Contact Us</a>
             <div class="pt-2">
                 <a href="#contact" class="mobile-link block text-center w-full px-5 py-3 rounded-xl bg-brand-600 text-white font-semibold text-xs uppercase tracking-wider">Contact Us</a>
@@ -588,40 +588,42 @@ We remain committed to delivering secure, reliable, and innovative engineering s
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <!-- Section Header & Live Search Bar -->
+        <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
             <div>
                 <div class="inline-flex items-center space-x-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">
                     <i class="fa-solid fa-lock me-1"></i> Secure Access &amp; Documentation Portal
                 </div>
                 <h2 class="text-3xl font-bold tracking-tight text-white">Technical &amp; Proposal Documentation</h2>
-                <p class="mt-2 text-slate-400 text-base">Search and preview official engineering proposals, architecture schematics, and CSV validation templates.</p>
-            </div>
-
-            <!-- Dynamic Live Search Bar -->
-            <div class="w-full md:w-80 relative">
-                <label for="doc-search-input" class="sr-only">Search Documents</label>
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                    </span>
-                    <input 
-                        type="text" 
-                        id="doc-search-input" 
-                        oninput="filterDocuments()" 
-                        placeholder="Search documents (e.g. DeltaV, PI, CSV)..." 
-                        class="w-full pl-9 pr-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all shadow-inner"
-                    >
-                </div>
+                <p class="mt-2 text-slate-400 text-base">Search by filename or title, and authenticate with a legitimate corporate email to view proposals.</p>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            <!-- Left Column: Authentication & Document Selector -->
-            <div class="lg:col-span-5 bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 md:p-8 flex flex-col space-y-6 shadow-xl">
+            <!-- Left Column: Search Bar, Corporate Authentication & Document Selector -->
+            <div class="lg:col-span-5 bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 md:p-8 flex flex-col space-y-5 shadow-xl">
                 
-                <!-- Security Verification Box (Corporate Email Required) -->
+                <!-- Top Search Bar (Search by Filename, Title, or Keyword) -->
+                <div>
+                    <label for="doc-search-input" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                        Search Document by Filename or Keyword:
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                        </span>
+                        <input 
+                            type="text" 
+                            id="doc-search-input" 
+                            oninput="filterDocuments()" 
+                            placeholder="Type filename (e.g. Proposal.pdf, AVEVA_PI)..." 
+                            class="w-full pl-9 pr-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
+                        >
+                    </div>
+                </div>
+
+                <!-- Step 1: Security Verification Box (Strict Corporate Email Required) -->
                 <div id="doc-security-box" class="bg-slate-900/90 border border-slate-700 rounded-xl p-5">
                     <label for="corporate-email-input" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
                         Step 1: Enter Corporate Email (name.surname@company.com):
@@ -647,11 +649,11 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                         </button>
                     </div>
                     <p id="security-msg" class="mt-2 text-xs text-slate-400">
-                        <i class="fa-solid fa-circle-info me-1"></i> Format: name@company.com or name.surname@company.com
+                        <i class="fa-solid fa-shield-halved me-1"></i> Requires a valid corporate domain (no generic/free webmail).
                     </p>
                 </div>
 
-                <!-- Document Selection List -->
+                <!-- Step 2: Document Selection List -->
                 <div>
                     <span class="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold block mb-3">Step 2: Select Document to Preview</span>
                     <div id="doc-list-container" class="space-y-3 max-h-64 overflow-y-auto pr-1">
@@ -660,6 +662,7 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                         <div 
                             class="doc-card active cursor-pointer p-3.5 rounded-xl border border-brand-500/50 bg-slate-900/80 hover:bg-slate-900 transition-all" 
                             data-title="4jMarte Automation Engineering Proposal" 
+                            data-filename="4jMarte-Automation Engineering_Proposal.pdf"
                             data-ref="4JM-PROP-2026" 
                             data-src="./4jMarte-Automation Engineering_Proposal.pdf" 
                             data-keywords="automation engineering proposal deltav rs3 mes csv"
@@ -671,13 +674,14 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                                 </h4>
                                 <span class="text-[10px] bg-brand-500/20 text-brand-300 px-2 py-0.5 rounded font-mono">4JM-PROP-2026</span>
                             </div>
-                            <p class="text-xs text-slate-400 mt-1">DeltaV, RS3, MES, OT Cybersecurity &amp; GMP Validation Scope.</p>
+                            <p class="text-[11px] font-mono text-slate-400 mt-1 truncate">File: 4jMarte-Automation Engineering_Proposal.pdf</p>
                         </div>
 
                         <!-- Doc Item 2 -->
                         <div 
                             class="doc-card cursor-pointer p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-900 transition-all" 
                             data-title="Secured AVEVA PI & Purdue Architecture" 
+                            data-filename="Secured_AVEVA_PI_PerdueArchitecture_4jMarte.pdf"
                             data-ref="4JM-ARCH-AVEVA" 
                             data-src="./Secured_AVEVA_PI_PerdueArchitecture_4jMarte.pdf" 
                             data-keywords="aveva pi perdue architecture ot cybersecurity network"
@@ -689,12 +693,12 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                                 </h4>
                                 <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-0.5 rounded font-mono">4JM-ARCH-AVEVA</span>
                             </div>
-                            <p class="text-xs text-slate-400 mt-1">Official architectural diagram &amp; Purdue model OT security layout.</p>
+                            <p class="text-[11px] font-mono text-slate-400 mt-1 truncate">File: Secured_AVEVA_PI_PerdueArchitecture_4jMarte.pdf</p>
                         </div>
 
                     </div>
                     <div id="no-docs-found" class="hidden text-center py-4 text-slate-400 text-xs">
-                        <i class="fa-solid fa-magnifying-glass me-1"></i> No matching documents found.
+                        <i class="fa-solid fa-magnifying-glass me-1"></i> No matching filename or document found.
                     </div>
                 </div>
 
@@ -719,7 +723,7 @@ We remain committed to delivering secure, reliable, and innovative engineering s
             </div>
 
             <!-- Right Column: Document Reader Container -->
-            <div class="lg:col-span-7 bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[600px] relative">
+            <div class="lg:col-span-7 bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[630px] relative">
                 
                 <!-- Locked Overlay Screen -->
                 <div id="pdf-locked-overlay" class="absolute inset-0 bg-slate-950/90 backdrop-blur-md z-20 flex flex-col items-center justify-center p-8 text-center transition-opacity duration-300">
@@ -728,7 +732,7 @@ We remain committed to delivering secure, reliable, and innovative engineering s
                     </div>
                     <h4 class="text-xl font-bold text-white mb-2">Protected Document Access</h4>
                     <p class="text-slate-400 text-sm max-w-md mb-6 leading-relaxed">
-                        Please enter your corporate email address (name.surname@company.com) to view technical previews and request copies from 4jMarte.
+                        Please enter a legitimate corporate email address (e.g. name.surname@yourcompany.com) to unlock technical previews.
                     </p>
                     <div class="inline-flex items-center px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-slate-400">
                         <i class="fa-solid fa-shield text-brand-400 me-2"></i> Status: Locked (Corporate Email Required)
@@ -767,10 +771,11 @@ We remain committed to delivering secure, reliable, and innovative engineering s
     </div>
 </section>
 
-<!-- Interactive Script for Corporate Email Authentication -->
+<!-- Interactive Script with Filename Search & Strict Legit Corporate Email Check -->
 <script>
 let currentSelectedDoc = {
     title: "4jMarte Automation Engineering Proposal",
+    filename: "4jMarte-Automation Engineering_Proposal.pdf",
     ref: "4JM-PROP-2026",
     src: "./4jMarte-Automation Engineering_Proposal.pdf"
 };
@@ -778,7 +783,7 @@ let currentSelectedDoc = {
 let isAuthenticated = false;
 let userEmailValue = "";
 
-// 1. Dynamic Search Bar Filtering
+// 1. Dynamic Search by Filename, Title, Ref, or Keywords
 function filterDocuments() {
     const input = document.getElementById('doc-search-input').value.toLowerCase().trim();
     const cards = document.querySelectorAll('.doc-card');
@@ -786,10 +791,11 @@ function filterDocuments() {
 
     cards.forEach(card => {
         const title = card.getAttribute('data-title').toLowerCase();
+        const filename = card.getAttribute('data-filename').toLowerCase();
         const ref = card.getAttribute('data-ref').toLowerCase();
         const keywords = card.getAttribute('data-keywords').toLowerCase();
 
-        if (title.includes(input) || ref.includes(input) || keywords.includes(input)) {
+        if (filename.includes(input) || title.includes(input) || ref.includes(input) || keywords.includes(input)) {
             card.classList.remove('hidden');
             visibleCount++;
         } else {
@@ -816,6 +822,7 @@ function selectDocument(element) {
     element.classList.remove('border-slate-700', 'bg-slate-800/60');
 
     currentSelectedDoc.title = element.getAttribute('data-title');
+    currentSelectedDoc.filename = element.getAttribute('data-filename');
     currentSelectedDoc.ref = element.getAttribute('data-ref');
     currentSelectedDoc.src = element.getAttribute('data-src');
 
@@ -823,12 +830,40 @@ function selectDocument(element) {
     pdfFrame.src = `${currentSelectedDoc.src}#toolbar=0&navpanes=0`;
 
     if (isAuthenticated) {
-        document.getElementById('pdf-header-title').textContent = currentSelectedDoc.title;
-        document.getElementById('pdf-header-subtitle').textContent = `Ref: ${currentSelectedDoc.ref}`;
+        document.getElementById('pdf-header-title').textContent = currentSelectedDoc.filename;
+        document.getElementById('pdf-header-subtitle').textContent = `Authorized View for: ${userEmailValue} (Ref: ${currentSelectedDoc.ref})`;
     }
 }
 
-// 3. Corporate Email Validation & Authentication
+// 3. Strict Corporate Email Validation (Blocks Fake/Dummy & Free Webmail Addresses)
+function isLegitCorporateEmail(email) {
+    const basicRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!basicRegex.test(email)) return { valid: false, reason: "Invalid email format. Use name.surname@company.com" };
+
+    const [localPart, domainPart] = email.toLowerCase().split('@');
+    const domainName = domainPart.split('.')[0];
+
+    // Block placeholder / fake / dummy local names
+    const blockedLocals = ['any', 'test', 'testing', 'demo', 'example', 'user', 'guest', 'none', 'null', 'fake', 'asdf', 'qwerty', '123', 'abc', 'admin', 'temp', 'no-reply', 'noreply'];
+    if (blockedLocals.includes(localPart) || localPart.length < 2) {
+        return { valid: false, reason: "Please enter your real name (e.g. john.smith@company.com)." };
+    }
+
+    // Block placeholder / fake domains
+    const blockedDomains = ['company.com', 'companyname.com', 'example.com', 'example.org', 'test.com', 'domain.com', 'email.com', 'mail.com', 'fake.com', 'none.com', 'null.com', 'asdf.com', 'xyz.com', '123.com', 'yourcompany.com'];
+    if (blockedDomains.includes(domainPart) || blockedLocals.includes(domainName)) {
+        return { valid: false, reason: "Placeholder domains like @company.com are not accepted. Use your actual company domain." };
+    }
+
+    // Block public / free consumer email providers
+    const freeProviders = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'live.com', 'aol.com', 'icloud.com', 'protonmail.com', 'proton.me', 'gmx.com', 'yandex.com', 'zoho.com', 'msn.com'];
+    if (freeProviders.includes(domainPart)) {
+        return { valid: false, reason: "Free consumer emails (Gmail, Yahoo, Outlook) are restricted. Please use your corporate work email." };
+    }
+
+    return { valid: true };
+}
+
 function verifyCorporateEmail() {
     const emailInput = document.getElementById('corporate-email-input');
     const securityMsg = document.getElementById('security-msg');
@@ -839,12 +874,19 @@ function verifyCorporateEmail() {
     const securityBox = document.getElementById('doc-security-box');
 
     const email = emailInput.value.trim();
-    // Regex validating name/name.surname@companyname.com structure
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const check = isLegitCorporateEmail(email);
 
-    if (!emailRegex.test(email) || !email.includes('.')) {
+    if (!check.valid) {
+        // Re-lock if previously unlocked and user enters invalid email
+        isAuthenticated = false;
+        lockedOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        pdfFrame.classList.add('opacity-20');
+        downloadBtn.classList.add('opacity-50', 'pointer-events-none');
+        fullscreenBtn.classList.add('opacity-50', 'pointer-events-none');
+
+        securityBox.className = "bg-red-950/30 border border-red-500/40 rounded-xl p-5";
         securityMsg.className = "mt-2 text-xs text-red-400 font-semibold";
-        securityMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation me-1"></i> Please enter a valid corporate email (e.g. john.smith@guerbet.com)';
+        securityMsg.innerHTML = `<i class="fa-solid fa-triangle-exclamation me-1"></i> ${check.reason}`;
         emailInput.focus();
         return;
     }
@@ -858,7 +900,7 @@ function verifyCorporateEmail() {
     downloadBtn.classList.remove('opacity-50', 'pointer-events-none');
     fullscreenBtn.classList.remove('opacity-50', 'pointer-events-none');
 
-    document.getElementById('pdf-header-title').textContent = currentSelectedDoc.title;
+    document.getElementById('pdf-header-title').textContent = currentSelectedDoc.filename;
     document.getElementById('pdf-header-subtitle').textContent = `Authorized View for: ${email} (Ref: ${currentSelectedDoc.ref})`;
     
     securityBox.className = "bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-5";
@@ -866,14 +908,16 @@ function verifyCorporateEmail() {
     securityMsg.innerHTML = `<i class="fa-solid fa-circle-check me-1"></i> Authenticated for <strong>${email}</strong>. Download request ready.`;
 }
 
-// 4. Send Email Request directly to info@4jmarte.ie with User Details
+// 4. Send Email Request directly to info@4jmarte.ie
 function requestDownloadViaEmail() {
+    if (!isAuthenticated) return;
     const recipient = "info@4jmarte.ie";
-    const subject = encodeURIComponent(`Document Download Request: ${currentSelectedDoc.title} [${currentSelectedDoc.ref}]`);
+    const subject = encodeURIComponent(`Document Download Request: ${currentSelectedDoc.filename} [${currentSelectedDoc.ref}]`);
     const body = encodeURIComponent(
         `Hello 4jMarte Engineering Team,\n\n` +
         `An official document download request has been submitted from the web portal:\n\n` +
         `Requester Email: ${userEmailValue}\n` +
+        `File Name: ${currentSelectedDoc.filename}\n` +
         `Document Title: ${currentSelectedDoc.title}\n` +
         `Document Ref: ${currentSelectedDoc.ref}\n\n` +
         `Please forward the requested PDF package to ${userEmailValue}.\n\n` +
@@ -886,6 +930,7 @@ function requestDownloadViaEmail() {
 
 // 5. Fullscreen Preview Toggle
 function toggleDocFullscreen() {
+    if (!isAuthenticated) return;
     const pdfFrame = document.getElementById('pdf-frame');
     if (pdfFrame.requestFullscreen) {
         pdfFrame.requestFullscreen();
@@ -893,129 +938,370 @@ function toggleDocFullscreen() {
         pdfFrame.webkitRequestFullscreen();
     }
 }
-</script></section>
+</script>
+<!-- LINKEDIN-STYLE INSIGHTS & ENGINEERING UPDATES SECTION -->
+<section id="updates" class="py-20 bg-slate-50 border-t border-slate-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+            <div>
+                <div class="inline-flex items-center space-x-2 bg-[#0A66C2]/10 border border-[#0A66C2]/20 px-3 py-1 rounded-full text-[#0A66C2] text-xs font-semibold uppercase tracking-wider mb-3">
+                    <i class="fa-brands fa-linkedin me-1"></i> Engineering Feed
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Insights &amp; Industry Updates</h2>
+                <p class="mt-2 text-slate-600 text-base">Technical articles, project milestones, and automation cybersecurity news from 4jMarte.</p>
+            </div>
+            <a href="https://www.linkedin.com/company/https-companycheck.ie-company-792458/about/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-sm font-semibold bg-[#0A66C2] text-white hover:bg-[#084e96] transition-colors shadow-sm shrink-0">
+                <i class="fa-brands fa-linkedin me-2 text-base"></i> Follow on LinkedIn
+            </a>
+        </div>
 
-<!-- Interactive Dynamic JavaScript -->
+        <!-- LinkedIn-Style Post / Article Composer Box -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-5 mb-8">
+            <div class="flex items-center space-x-3">
+                <img src="./logo.png" alt="4jMarte" class="w-11 h-11 rounded-full object-cover border border-slate-200 bg-white shrink-0" onerror="this.src='https://placehold.co/100x100/0284c7/ffffff?text=4J'">
+                <button onclick="togglePostComposer()" class="flex-1 text-left px-4 py-3 rounded-full border border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-500 text-sm font-medium transition-colors">
+                    Start a post or publish an engineering article...
+                </button>
+            </div>
+
+            <!-- Quick Action Triggers -->
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100 text-xs font-semibold text-slate-600">
+                <button onclick="openComposerMode('post')" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors">
+                    <i class="fa-solid fa-pen-to-square text-brand-600 text-base"></i>
+                    <span>Quick Update</span>
+                </button>
+                <button onclick="openComposerMode('article')" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors">
+                    <i class="fa-solid fa-newspaper text-amber-600 text-base"></i>
+                    <span>Write Technical Article</span>
+                </button>
+                <button onclick="openComposerMode('media')" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors">
+                    <i class="fa-solid fa-image text-emerald-600 text-base"></i>
+                    <span>Add Image / Link</span>
+                </button>
+            </div>
+
+            <!-- Expandable Composer Form -->
+            <div id="post-composer-form" class="hidden mt-5 pt-5 border-t border-slate-200 space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Post Type</label>
+                        <select id="post-type-select" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            <option value="Engineering Update">Engineering Update</option>
+                            <option value="Technical Article">Technical Article</option>
+                            <option value="Cybersecurity Advisory">Cybersecurity Advisory</option>
+                            <option value="Project Milestone">Project Milestone</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Headline / Article Title</label>
+                        <input type="text" id="post-title-input" placeholder="e.g. Securing AVEVA PI under IEC 62443..." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Content / Article Body</label>
+                    <textarea id="post-body-input" rows="4" placeholder="Write your insights, technical notes, or project highlights here..." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Optional Image URL / Repo File</label>
+                        <input type="text" id="post-image-input" placeholder="e.g. ./Designer.png or https://..." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Hashtags</label>
+                        <input type="text" id="post-tags-input" value="#IndustrialAutomation #OTCybersecurity #DeltaV #IEC62443" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                    <button type="button" onclick="togglePostComposer()" class="px-4 py-2 text-sm font-semibold text-slate-500 hover:text-slate-700">
+                        Cancel
+                    </button>
+                    <div class="flex gap-2">
+                        <button type="button" onclick="copyPostHTML()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold rounded-lg transition-colors">
+                            <i class="fa-solid fa-code me-1.5"></i> Copy HTML for GitHub
+                        </button>
+                        <button type="button" onclick="publishFeedPost()" class="px-5 py-2 bg-[#0A66C2] hover:bg-[#084e96] text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
+                            Post to Feed
+                        </button>
+                    </div>
+                </div>
+                <p id="composer-feedback" class="hidden text-xs font-semibold text-emerald-600"></p>
+            </div>
+        </div>
+
+        <!-- Feed Stream Container -->
+        <div id="linkedin-feed-container" class="space-y-6">
+            
+            <!-- Sample Pinned Article 1 -->
+            <article class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+                <div class="p-6">
+                    <!-- Author Header -->
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center space-x-3">
+                            <img src="./logo.png" alt="4jMarte" class="w-12 h-12 rounded-full object-cover border border-slate-200 bg-white" onerror="this.src='https://placehold.co/100x100/0284c7/ffffff?text=4J'">
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <h3 class="font-bold text-slate-900 text-base">4jMarte Industrial Automation &amp; Cybersecurity</h3>
+                                    <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-brand-50 text-brand-700 rounded border border-brand-200">Article</span>
+                                </div>
+                                <p class="text-xs text-slate-500">Industry 4.0 Engineering • Emerson DeltaV • IEC 62443 • Dublin, Ireland</p>
+                                <p class="text-xs text-slate-400 mt-0.5"><i class="fa-solid fa-earth-americas me-1"></i> Featured Insight</p>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/company/https-companycheck.ie-company-792458/about/" target="_blank" rel="noopener noreferrer" class="text-[#0A66C2] hover:underline text-xs font-semibold">
+                            <i class="fa-brands fa-linkedin text-lg"></i>
+                        </a>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="mt-4 space-y-3">
+                        <h4 class="text-lg font-bold text-slate-900">Implementing Purdue Model Segmentation &amp; Zero Trust for AVEVA PI &amp; DeltaV Environments</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            Bridging Operational Technology (OT) and Enterprise IT requires strict adherence to IEC 62443 standards without compromising real-time control loop determinism. By isolating Level 1–3 control networks behind DMZ data diodes and hardened historians, life sciences and petrochemical facilities achieve full GAMP 5 compliance alongside modern analytics visibility.
+                        </p>
+                        <p class="text-xs font-semibold text-[#0A66C2]">
+                            #IndustrialAutomation #OTCybersecurity #IEC62443 #EmersonDeltaV #AVEVAPI #GMP #SmartManufacturing
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Engagement Bar -->
+                <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-600">
+                    <div class="flex items-center space-x-6">
+                        <button onclick="toggleLikePost(this)" class="flex items-center space-x-1.5 hover:text-[#0A66C2] transition-colors">
+                            <i class="fa-regular fa-thumbs-up text-sm"></i>
+                            <span>Recommend (<span class="like-count">24</span>)</span>
+                        </button>
+                        <a href="#documentation" class="flex items-center space-x-1.5 hover:text-brand-600 transition-colors">
+                            <i class="fa-solid fa-file-pdf text-sm"></i>
+                            <span>View Architecture PDF</span>
+                        </a>
+                    </div>
+                    <button onclick="shareFeedPost(this, 'Implementing Purdue Model Segmentation & Zero Trust')" class="flex items-center space-x-1.5 hover:text-slate-900 transition-colors">
+                        <i class="fa-solid fa-share-nodes text-sm"></i>
+                        <span>Copy Link</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- Sample Post 2 -->
+            <article class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center space-x-3">
+                            <img src="./logo.png" alt="4jMarte" class="w-12 h-12 rounded-full object-cover border border-slate-200 bg-white" onerror="this.src='https://placehold.co/100x100/0284c7/ffffff?text=4J'">
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <h3 class="font-bold text-slate-900 text-base">4jMarte Industrial Automation &amp; Cybersecurity</h3>
+                                    <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 rounded border border-emerald-200">Update</span>
+                                </div>
+                                <p class="text-xs text-slate-500">20+ Years Global Automation &amp; CSV Qualification Lifecycle</p>
+                                <p class="text-xs text-slate-400 mt-0.5"><i class="fa-solid fa-earth-americas me-1"></i> Engineering Operations</p>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/company/https-companycheck.ie-company-792458/about/" target="_blank" rel="noopener noreferrer" class="text-[#0A66C2] hover:underline text-xs font-semibold">
+                            <i class="fa-brands fa-linkedin text-lg"></i>
+                        </a>
+                    </div>
+
+                    <div class="mt-4 space-y-3">
+                        <h4 class="text-lg font-bold text-slate-900">End-to-End IQ/OQ/PQ &amp; CSV Support for Regulated Pharmaceutical Facilities</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            From SAT execution to full Computer Systems Validation (CSV) and disaster recovery readiness, our engineering team supports mission-critical DCS, MES, and Power Management Systems across Ireland and international sites.
+                        </p>
+                        <p class="text-xs font-semibold text-[#0A66C2]">
+                            #CSV #GAMP5 #PharmaAutomation #ABB800xA #DeltaV #IrelandEngineering
+                        </p>
+                    </div>
+                </div>
+
+                <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-600">
+                    <div class="flex items-center space-x-6">
+                        <button onclick="toggleLikePost(this)" class="flex items-center space-x-1.5 hover:text-[#0A66C2] transition-colors">
+                            <i class="fa-regular fa-thumbs-up text-sm"></i>
+                            <span>Recommend (<span class="like-count">18</span>)</span>
+                        </button>
+                        <a href="#contact" class="flex items-center space-x-1.5 hover:text-brand-600 transition-colors">
+                            <i class="fa-regular fa-comment-dots text-sm"></i>
+                            <span>Inquire</span>
+                        </a>
+                    </div>
+                    <button onclick="shareFeedPost(this, 'End-to-End IQ/OQ/PQ & CSV Support')" class="flex items-center space-x-1.5 hover:text-slate-900 transition-colors">
+                        <i class="fa-solid fa-share-nodes text-sm"></i>
+                        <span>Copy Link</span>
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- LinkedIn Feed & Publisher JavaScript -->
 <script>
-let currentSelectedDoc = {
-    title: "4jMarte Automation Engineering Proposal",
-    ref: "4JM-PROP-2026",
-    src: "./4jMarte-Automation Engineering_Proposal.pdf"
-};
+function togglePostComposer() {
+    const form = document.getElementById('post-composer-form');
+    form.classList.toggle('hidden');
+}
 
-let isAuthenticated = false;
+function openComposerMode(mode) {
+    const form = document.getElementById('post-composer-form');
+    const typeSelect = document.getElementById('post-type-select');
+    form.classList.remove('hidden');
 
-// 1. Dynamic Search Bar Filtering
-function filterDocuments() {
-    const input = document.getElementById('doc-search-input').value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.doc-card');
-    let visibleCount = 0;
-
-    cards.forEach(card => {
-        const title = card.getAttribute('data-title').toLowerCase();
-        const ref = card.getAttribute('data-ref').toLowerCase();
-        const keywords = card.getAttribute('data-keywords').toLowerCase();
-
-        if (title.includes(input) || ref.includes(input) || keywords.includes(input)) {
-            card.classList.remove('hidden');
-            visibleCount++;
-        } else {
-            card.classList.add('hidden');
-        }
-    });
-
-    const noDocs = document.getElementById('no-docs-found');
-    if (visibleCount === 0) {
-        noDocs.classList.remove('hidden');
+    if (mode === 'article') {
+        typeSelect.value = 'Technical Article';
+        document.getElementById('post-title-input').focus();
+    } else if (mode === 'media') {
+        document.getElementById('post-image-input').focus();
     } else {
-        noDocs.classList.add('hidden');
+        typeSelect.value = 'Engineering Update';
+        document.getElementById('post-body-input').focus();
     }
 }
 
-// 2. Document Selection Switcher
-function selectDocument(element) {
-    document.querySelectorAll('.doc-card').forEach(c => {
-        c.classList.remove('active', 'border-brand-500/50', 'bg-slate-900/80');
-        c.classList.add('border-slate-700', 'bg-slate-800/60');
-    });
+function buildArticleHTML(post) {
+    const imageBlock = post.image 
+        ? `<div class="mt-4 rounded-xl overflow-hidden border border-slate-200"><img src="${post.image}" alt="${post.title}" class="w-full max-h-80 object-cover"></div>` 
+        : '';
 
-    element.classList.add('active', 'border-brand-500/50', 'bg-slate-900/80');
-    element.classList.remove('border-slate-700', 'bg-slate-800/60');
-
-    currentSelectedDoc.title = element.getAttribute('data-title');
-    currentSelectedDoc.ref = element.getAttribute('data-ref');
-    currentSelectedDoc.src = element.getAttribute('data-src');
-
-    const pdfFrame = document.getElementById('pdf-frame');
-    pdfFrame.src = `${currentSelectedDoc.src}#toolbar=0&navpanes=0`;
-
-    if (isAuthenticated) {
-        document.getElementById('pdf-header-title').textContent = currentSelectedDoc.title;
-        document.getElementById('pdf-header-subtitle').textContent = `Ref: ${currentSelectedDoc.ref}`;
-    }
+    return `
+    <article class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+        <div class="p-6">
+            <div class="flex items-start justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="./logo.png" alt="4jMarte" class="w-12 h-12 rounded-full object-cover border border-slate-200 bg-white" onerror="this.src='https://placehold.co/100x100/0284c7/ffffff?text=4J'">
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <h3 class="font-bold text-slate-900 text-base">4jMarte Industrial Automation &amp; Cybersecurity</h3>
+                            <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-brand-50 text-brand-700 rounded border border-brand-200">${post.type}</span>
+                        </div>
+                        <p class="text-xs text-slate-500">Industry 4.0 Engineering • Dublin, Ireland</p>
+                        <p class="text-xs text-slate-400 mt-0.5"><i class="fa-solid fa-earth-americas me-1"></i> ${post.date}</p>
+                    </div>
+                </div>
+                <a href="https://www.linkedin.com/company/https-companycheck.ie-company-792458/about/" target="_blank" rel="noopener noreferrer" class="text-[#0A66C2] hover:underline text-xs font-semibold">
+                    <i class="fa-brands fa-linkedin text-lg"></i>
+                </a>
+            </div>
+            <div class="mt-4 space-y-3">
+                ${post.title ? `<h4 class="text-lg font-bold text-slate-900">${post.title}</h4>` : ''}
+                <p class="text-slate-700 text-sm leading-relaxed whitespace-pre-line">${post.body}</p>
+                ${imageBlock}
+                ${post.tags ? `<p class="text-xs font-semibold text-[#0A66C2]">${post.tags}</p>` : ''}
+            </div>
+        </div>
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-600">
+            <div class="flex items-center space-x-6">
+                <button onclick="toggleLikePost(this)" class="flex items-center space-x-1.5 hover:text-[#0A66C2] transition-colors">
+                    <i class="fa-regular fa-thumbs-up text-sm"></i>
+                    <span>Recommend (<span class="like-count">1</span>)</span>
+                </button>
+                <a href="#contact" class="flex items-center space-x-1.5 hover:text-brand-600 transition-colors">
+                    <i class="fa-regular fa-comment-dots text-sm"></i>
+                    <span>Discuss</span>
+                </a>
+            </div>
+            <button onclick="shareFeedPost(this, '${post.title || '4jMarte Update'}')" class="flex items-center space-x-1.5 hover:text-slate-900 transition-colors">
+                <i class="fa-solid fa-share-nodes text-sm"></i>
+                <span>Copy Link</span>
+            </button>
+        </div>
+    </article>`;
 }
 
-// 3. Security Verification
-function verifyCompanyAccess() {
-    const companyInput = document.getElementById('company-key-input');
-    const securityMsg = document.getElementById('security-msg');
-    const lockedOverlay = document.getElementById('pdf-locked-overlay');
-    const pdfFrame = document.getElementById('pdf-frame');
-    const downloadBtn = document.getElementById('download-doc-btn');
-    const fullscreenBtn = document.getElementById('fullscreen-doc-btn');
-    const securityBox = document.getElementById('doc-security-box');
+function getComposerData() {
+    return {
+        type: document.getElementById('post-type-select').value,
+        title: document.getElementById('post-title-input').value.trim(),
+        body: document.getElementById('post-body-input').value.trim(),
+        image: document.getElementById('post-image-input').value.trim(),
+        tags: document.getElementById('post-tags-input').value.trim(),
+        date: new Date().toLocaleDateString('en-IE', { year: 'numeric', month: 'short', day: 'numeric' })
+    };
+}
 
-    const value = companyInput.value.trim();
+function publishFeedPost() {
+    const post = getComposerData();
+    const feedback = document.getElementById('composer-feedback');
 
-    if (value.length < 2) {
-        securityMsg.className = "mt-2 text-xs text-red-400 font-semibold";
-        securityMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation me-1"></i> Please enter your company name to unlock.';
-        companyInput.focus();
+    if (!post.body) {
+        feedback.className = "text-xs font-semibold text-red-600";
+        feedback.textContent = "Please write some content before posting.";
+        feedback.classList.remove('hidden');
         return;
     }
 
-    isAuthenticated = true;
-    lockedOverlay.classList.add('opacity-0', 'pointer-events-none');
-    pdfFrame.classList.remove('opacity-20');
-    
-    downloadBtn.classList.remove('opacity-50', 'pointer-events-none');
-    fullscreenBtn.classList.remove('opacity-50', 'pointer-events-none');
+    // Save to browser localStorage
+    const saved = JSON.parse(localStorage.getItem('4jmarte_feed_posts') || '[]');
+    saved.unshift(post);
+    localStorage.setItem('4jmarte_feed_posts', JSON.stringify(saved));
 
-    document.getElementById('pdf-header-title').textContent = currentSelectedDoc.title;
-    document.getElementById('pdf-header-subtitle').textContent = `Authorized View for: ${value} (Ref: ${currentSelectedDoc.ref})`;
-    
-    securityBox.className = "bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-5";
-    securityMsg.className = "mt-2 text-xs text-emerald-400 font-semibold";
-    securityMsg.innerHTML = `<i class="fa-solid fa-circle-check me-1"></i> Authenticated for <strong>${value}</strong>. You can now request downloads.`;
+    // Prepend to feed immediately
+    const container = document.getElementById('linkedin-feed-container');
+    container.insertAdjacentHTML('afterbegin', buildArticleHTML(post));
+
+    // Reset inputs
+    document.getElementById('post-title-input').value = '';
+    document.getElementById('post-body-input').value = '';
+    document.getElementById('post-image-input').value = '';
+    feedback.className = "text-xs font-semibold text-emerald-600";
+    feedback.textContent = "Published to feed! Tip: Use 'Copy HTML for GitHub' to make posts permanent for all visitors.";
+    feedback.classList.remove('hidden');
 }
 
-// 4. Send Email Request directly to info@4jmarte.ie
-function requestDownloadViaEmail() {
-    const companyName = document.getElementById('company-key-input').value.trim() || 'Partner Organization';
-    const recipient = "info@4jmarte.ie";
-    const subject = encodeURIComponent(`Document Download Request: ${currentSelectedDoc.title} [${currentSelectedDoc.ref}]`);
-    const body = encodeURIComponent(
-        `Hello 4jMarte Engineering Team,\n\n` +
-        `Our organization (${companyName}) would like to request an official downloadable PDF copy of the following document:\n\n` +
-        `Document Title: ${currentSelectedDoc.title}\n` +
-        `Document Ref: ${currentSelectedDoc.ref}\n\n` +
-        `Please send the complete package to this email address.\n\n` +
-        `Best regards,\n` +
-        `${companyName}`
-    );
-
-    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+function copyPostHTML() {
+    const post = getComposerData();
+    const feedback = document.getElementById('composer-feedback');
+    if (!post.body) {
+        feedback.className = "text-xs font-semibold text-red-600";
+        feedback.textContent = "Enter post content first to generate HTML.";
+        feedback.classList.remove('hidden');
+        return;
+    }
+    navigator.clipboard.writeText(buildArticleHTML(post));
+    feedback.className = "text-xs font-semibold text-emerald-600";
+    feedback.textContent = "HTML copied! Paste it inside #linkedin-feed-container in index.html on GitHub.";
+    feedback.classList.remove('hidden');
 }
 
-// 5. Fullscreen Preview Toggle
-function toggleDocFullscreen() {
-    const pdfFrame = document.getElementById('pdf-frame');
-    if (pdfFrame.requestFullscreen) {
-        pdfFrame.requestFullscreen();
-    } else if (pdfFrame.webkitRequestFullscreen) {
-        pdfFrame.webkitRequestFullscreen();
+function toggleLikePost(btn) {
+    const icon = btn.querySelector('i');
+    const countSpan = btn.querySelector('.like-count');
+    let count = parseInt(countSpan.textContent, 10);
+
+    if (icon.classList.contains('fa-regular')) {
+        icon.classList.replace('fa-regular', 'fa-solid');
+        btn.classList.add('text-[#0A66C2]');
+        countSpan.textContent = count + 1;
+    } else {
+        icon.classList.replace('fa-solid', 'fa-regular');
+        btn.classList.remove('text-[#0A66C2]');
+        countSpan.textContent = count - 1;
     }
 }
+
+function shareFeedPost(btn, title) {
+    const url = `${window.location.origin}${window.location.pathname}#updates`;
+    navigator.clipboard.writeText(url);
+    const span = btn.querySelector('span');
+    const original = span.textContent;
+    span.textContent = "Copied!";
+    setTimeout(() => span.textContent = original, 2000);
+}
+
+// Load any locally saved posts on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const saved = JSON.parse(localStorage.getItem('4jmarte_feed_posts') || '[]');
+    const container = document.getElementById('linkedin-feed-container');
+    saved.reverse().forEach(post => {
+        container.insertAdjacentHTML('afterbegin', buildArticleHTML(post));
+    });
+});
 </script>
 
         <!-- CONTACT US SECTION -->
